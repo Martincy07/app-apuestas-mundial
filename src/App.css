@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+h1 {
+  color: white;
+  font-size: 2.5rem;
+}
+
+.saldo-box {
+  background: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #667eea;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.partidos-section h2,
+.apuestas-section h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.partidos-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.partido-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.partido-card:hover {
+  transform: translateY(-5px);
+}
+
+.fecha {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.partido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 15px 0;
+  gap: 10px;
+}
+
+.equipo {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.resultado {
+  background: #4CAF50;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+}
+
+.vs {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.en-vivo {
+  background: #ff4444;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  animation: blink 1s infinite;
+  font-size: 0.9rem;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.7; }
+}
+
+.estado {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.cuotas {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.cuota-btn {
+  flex: 1;
+  padding: 8px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+  font-size: 0.85rem;
+}
+
+.cuota-btn:hover {
+  background: #5568d3;
+}
+
+.apuestas-list {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.sin-apuestas {
+  color: #999;
+  text-align: center;
+  padding: 20px;
+}
+
+.apuesta-card {
+  background: #f5f5f5;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.apuesta-partido {
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+.apuesta-tipo,
+.apuesta-datos,
+.apuesta-ganancia,
+.apuesta-fecha {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.apuesta-ganancia {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.apuesta-fecha {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.modal-tipo,
+.modal-cuota {
+  margin: 10px 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.modal input {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.modal input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.ganancia-preview {
+  background: #e8f5e9;
+  padding: 10px;
+  border-radius: 6px;
+  color: #2e7d32;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-cancelar,
+.btn-apostar {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-cancelar {
+  background: #ddd;
+  color: #333;
+}
+
+.btn-cancelar:hover {
+  background: #ccc;
+}
+
+.btn-apostar {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-apostar:hover {
+  background: #45a049;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
